@@ -127,7 +127,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         directionRequest.destination = MKMapItem(placemark: destinationPlaceMark)
         
         // transportation type
-        directionRequest.transportType = .automobile
+        directionRequest.transportType = .walking
         
         // calculate the direction
         let directions = MKDirections(request: directionRequest)
