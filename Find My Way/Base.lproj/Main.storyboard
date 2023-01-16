@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -21,10 +22,35 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zck-Fk-3Dw">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="barTintColor" systemColor="systemOrangeColor"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="22"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Find My Way" id="pha-ht-Q5x"/>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lyd-lu-2D6">
+                                <rect key="frame" x="289" y="719" width="69" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <imageReference key="image" image="location.fill" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="zck-Fk-3Dw" firstAttribute="leading" secondItem="0LA-pN-lCX" secondAttribute="leading" id="442-zh-dkU"/>
+                            <constraint firstItem="zck-Fk-3Dw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IRl-WZ-mgv"/>
+                            <constraint firstItem="zck-Fk-3Dw" firstAttribute="trailing" secondItem="0LA-pN-lCX" secondAttribute="trailing" id="ZFh-7v-3nB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0LA-pN-lCX" secondAttribute="trailing" id="hRF-sc-NYv"/>
                             <constraint firstItem="0LA-pN-lCX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="krP-NM-7Om"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0LA-pN-lCX" secondAttribute="bottom" id="lp1-m0-e8S"/>
@@ -32,7 +58,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="map" destination="0LA-pN-lCX" id="cfF-LA-NCN"/>
+                        <outlet property="directionBtn" destination="Lyd-lu-2D6" id="5i6-od-y9i"/>
+                        <outlet property="map" destination="0LA-pN-lCX" id="rJK-0u-2va"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -41,8 +68,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="location.fill" catalog="system" width="128" height="119"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

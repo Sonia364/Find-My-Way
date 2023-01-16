@@ -12,10 +12,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 
     var locationManager = CLLocationManager()
     
+    @IBOutlet weak var directionBtn: UIButton!
     @IBOutlet weak var map: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        directionBtn.layer.cornerRadius = 0.5 * directionBtn.bounds.size.width
         // Do any additional setup after loading the view.
         
         map.delegate = self
