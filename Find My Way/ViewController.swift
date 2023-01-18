@@ -14,14 +14,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     // destination variable
     var destination: CLLocationCoordinate2D!
     
+    var transportVal: MKDirectionsTransportType = .automobile
+    
     @IBOutlet weak var directionBtn: UIButton!
     @IBOutlet weak var map: MKMapView!
-    @IBOutlet weak var transportType: UITabBar!
+    @IBOutlet weak var transportType: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    
         
         directionBtn.layer.cornerRadius = 0.5 * directionBtn.bounds.size.width
         // Do any additional setup after loading the view.
@@ -48,6 +48,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
     }
     
+    @IBAction func switchTransport(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            transportVal = .walking
+        case 1:
+            transportVal = .automobile
+        default:
+            print("test")
+        }
+        
+        drawRoute()
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
@@ -87,7 +99,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(dropPin))
         doubleTap.numberOfTapsRequired = 2
         map.addGestureRecognizer(doubleTap)
-        
     }
     
     @objc func dropPin(sender: UITapGestureRecognizer) {
@@ -104,6 +115,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         destination = coordinate
         directionBtn.isHidden = false
+        transportType.isHidden = false
     }
     
     //MARK: - remove pin from map
@@ -111,12 +123,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         for annotation in map.annotations {
             map.removeAnnotation(annotation)
         }
-        
-//        map.removeAnnotations(map.annotations)
     }
     
     //MARK: - draw route between two places
-    @IBAction func drawRoute(_ sender: UIButton) {
+    @IBAction func drawRoute() {
         map.removeOverlays(map.overlays)
         
         let sourcePlaceMark = MKPlacemark(coordinate: locationManager.location!.coordinate)
@@ -130,7 +140,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         directionRequest.destination = MKMapItem(placemark: destinationPlaceMark)
         
         // transportation type
-        directionRequest.transportType = .walking
+        directionRequest.transportType = transportVal
         
         // calculate the direction
         let directions = MKDirections(request: directionRequest)
@@ -196,7 +206,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         } else if overlay is MKPolyline {
             let rendrer = MKPolylineRenderer(overlay: overlay)
             rendrer.strokeColor = UIColor.orange
-            rendrer.lineDashPattern = [0,10]
+            rendrer.lineDashPattern = transportVal == .walking ? [0,10]: []
             rendrer.lineWidth = 3
             return rendrer
         } else if overlay is MKPolygon {

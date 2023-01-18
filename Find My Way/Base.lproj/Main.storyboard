@@ -42,6 +42,9 @@
                                     <segment title="" image="car" catalog="system"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" red="0.92549026010000002" green="0.68627452850000004" blue="0.24313727020000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="switchTransport:" destination="BYZ-38-t0r" eventType="valueChanged" id="zPa-lm-uwZ"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lyd-lu-2D6">
                                 <rect key="frame" x="308" y="714" width="69" height="67"/>
@@ -53,7 +56,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="drawRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9NM-d3-uIB"/>
+                                    <action selector="drawRoute" destination="BYZ-38-t0r" eventType="touchUpInside" id="cX4-34-iJL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -77,6 +80,7 @@
                     <connections>
                         <outlet property="directionBtn" destination="Lyd-lu-2D6" id="5i6-od-y9i"/>
                         <outlet property="map" destination="0LA-pN-lCX" id="rJK-0u-2va"/>
+                        <outlet property="transportType" destination="VuA-bn-kav" id="JXE-AZ-CZQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
