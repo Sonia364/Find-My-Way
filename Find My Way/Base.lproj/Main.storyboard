@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0LA-pN-lCX">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0LA-pN-lCX">
+                                <rect key="frame" x="0.0" y="59" width="393" height="764"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zck-Fk-3Dw">
@@ -34,8 +34,17 @@
                                     <navigationItem title="Find My Way" id="pha-ht-Q5x"/>
                                 </items>
                             </navigationBar>
+                            <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="VuA-bn-kav">
+                                <rect key="frame" x="49" y="115" width="290" height="32"/>
+                                <color key="backgroundColor" red="0.94901961089999998" green="0.94901961089999998" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <segments>
+                                    <segment title="" image="figure.walk" catalog="system"/>
+                                    <segment title="" image="car" catalog="system"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" red="0.92549026010000002" green="0.68627452850000004" blue="0.24313727020000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </segmentedControl>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lyd-lu-2D6">
-                                <rect key="frame" x="289" y="719" width="69" height="67"/>
+                                <rect key="frame" x="308" y="714" width="69" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <buttonConfiguration key="configuration" style="filled">
@@ -47,46 +56,24 @@
                                     <action selector="drawRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9NM-d3-uIB"/>
                                 </connections>
                             </button>
-                            <tabBar tag="1" contentMode="scaleToFill" fixedFrame="YES" itemPositioning="fill" translatesAutoresizingMaskIntoConstraints="NO" id="zx6-X2-PKC">
-                                <rect key="frame" x="0.0" y="103" width="393" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <tabBarItem id="r48-cQ-cyP">
-                                        <imageReference key="image" image="figure.walk" catalog="system" renderingMode="hierarchical">
-                                            <hierarchicalColors>
-                                                <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color systemColor="secondaryLabelColor"/>
-                                                <color systemColor="tertiaryLabelColor"/>
-                                            </hierarchicalColors>
-                                        </imageReference>
-                                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tabBarItem>
-                                    <tabBarItem selectedImage="square.and.arrow.up" catalog="system" id="SsK-RV-yoC">
-                                        <imageReference key="image" image="car" catalog="system" renderingMode="hierarchical">
-                                            <hierarchicalColors>
-                                                <color systemColor="labelColor"/>
-                                                <color systemColor="secondaryLabelColor"/>
-                                                <color systemColor="tertiaryLabelColor"/>
-                                            </hierarchicalColors>
-                                        </imageReference>
-                                    </tabBarItem>
-                                </items>
-                                <color key="barTintColor" systemColor="systemOrangeColor"/>
-                                <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tabBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zck-Fk-3Dw" firstAttribute="leading" secondItem="0LA-pN-lCX" secondAttribute="leading" id="442-zh-dkU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VuA-bn-kav" secondAttribute="trailing" constant="54" id="Fea-ug-3p4"/>
                             <constraint firstItem="zck-Fk-3Dw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IRl-WZ-mgv"/>
+                            <constraint firstItem="VuA-bn-kav" firstAttribute="top" secondItem="zck-Fk-3Dw" secondAttribute="bottom" constant="12" id="SdY-wg-mYu"/>
                             <constraint firstItem="zck-Fk-3Dw" firstAttribute="trailing" secondItem="0LA-pN-lCX" secondAttribute="trailing" id="ZFh-7v-3nB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0LA-pN-lCX" secondAttribute="trailing" id="hRF-sc-NYv"/>
+                            <constraint firstItem="VuA-bn-kav" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="49" id="iiQ-PG-b6I"/>
                             <constraint firstItem="0LA-pN-lCX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="krP-NM-7Om"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0LA-pN-lCX" secondAttribute="bottom" id="lp1-m0-e8S"/>
                             <constraint firstItem="0LA-pN-lCX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="o56-rD-b7S"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="directionBtn" destination="Lyd-lu-2D6" id="5i6-od-y9i"/>
                         <outlet property="map" destination="0LA-pN-lCX" id="rJK-0u-2va"/>
@@ -94,31 +81,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="101.5267175572519" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="-335.1145038167939" y="-68.309859154929583"/>
         </scene>
     </scenes>
     <resources>
         <image name="car" catalog="system" width="128" height="95"/>
         <image name="figure.walk" catalog="system" width="95" height="128"/>
         <image name="location.fill" catalog="system" width="128" height="119"/>
-        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

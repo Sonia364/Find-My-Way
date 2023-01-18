@@ -16,9 +16,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     @IBOutlet weak var directionBtn: UIButton!
     @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var transportType: UITabBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    
         
         directionBtn.layer.cornerRadius = 0.5 * directionBtn.bounds.size.width
         // Do any additional setup after loading the view.
@@ -193,6 +196,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         } else if overlay is MKPolyline {
             let rendrer = MKPolylineRenderer(overlay: overlay)
             rendrer.strokeColor = UIColor.orange
+            rendrer.lineDashPattern = [0,10]
             rendrer.lineWidth = 3
             return rendrer
         } else if overlay is MKPolygon {
